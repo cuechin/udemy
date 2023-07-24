@@ -1,0 +1,23 @@
+Modern React with Redux [2023 Update]
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 2 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+* Props System
+	- Pass data from a parent to a child
+	- Allows  parent to configure each child differently (show different text, different styles, etc)
+	- One way flow of data. Child can't push props back up.
+	- Like 25% of understanding React.
+* Communication with Props
+	1. Add attributes to a JSX element.
+	2. React collects the attributes and puts them in an object.
+	3. Props object shows up as the first argument to the child component function.
+	4. We use the props however we wish.
+* React developer tools extension for Chrome: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+* When we import a non JavaScript file, we have to ass in the extension file (.png, .jpge, etc)
+* Development server exposes some built files out of our project to the browser. Dev server is serving up the indexed HTML file every time we try to access our app.
+* The primary JavaScript file that gets loaded up is we usually refer to as the bundled JS file.
+* If the image is less than 10,000 bytes or about 9.7kb (kilobytes) then the image's raw data is taken. It is converted into a format called base64 and that string represents the entire image.
+* If the image is larger than 9.7kb, then it gets treated as a separate file and it will be served up as a separate file by the development server.
+* alt prop: are used by people who make use of screen readers. Screen readers are pieces of software that take a look at the content on a screen and convert that content into audio.
+* bulma.io (https://bulma.io/) a CSS library 
+* NPM: Node Package Manager
