@@ -73,3 +73,91 @@ Modern React with Redux [2023 Update]
 	- Updating state is done only using the setter function.
 	- Calling the setter function causes React to rerender the component.
 * When you import an CSS file without a variable is telling our development server that we want to take all the CSS from inside that file and load it in the browser when we load up our project.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 4 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+* Unsplash API (https://unsplash.com/developers).
+* React has no tools, objects, functions for making HTTP requests.
+* React only cares about showimg content and handling user events.
+* HTTP
+	- HTTP request
+		* Request line: going to contain the URL that we want to make a request to.
+			Method indicates the general goal of the request. 
+				GET: Get some information from the server.
+				POST: Tell the server to create some new record.
+				PUT: Complety update an existing record.
+				DELETE: Delete a record.
+				PATCH: Partially update an existing record.
+			GET https://api.unsplash.com/images/search HTTP/1.1
+		* Headers: customize the request or provide some additional information over to the server that's going to receive the request.
+		In many cases, we're going to use headers to provide authentication.
+			Accept-Version: v1
+			Authorization: Client
+		* Body
+			{}
+	- HTTP response
+		* Status line: Indicates whether or not the request was successful.
+			*-*-*-*-*-*-*-*-*-*-*-* Successful request *-*-*-*-*-*-*-*-*-*-*-*
+			200: Request was successful, here's the data you were looking for.
+			201: Record was created.
+			204: Record was deleted.
+			*-*-*-*-*-*-*-*-*-*-*-* Request redirected *-*-*-*-*-*-*-*-*-*-*-*
+			301: URL you made request to has to changed.
+			*-*-*-*-* Bad request (not processed in the way we wanted) *-*-*-*-*
+			400: Something about your request is bad (incorrect syntax or similar).
+			401: Unauthorized. You must provide authentication details.
+			403: Forbidden. You aren't allowed to access this.
+			404: Not Found. The thing you were looking for wasn't found.
+			*-*-*-*-* Server failed to process request at the fault of the server *-*-*-*-*
+			500: Internal Server Error. Something on the server went wrong.
+
+			HTTP/1.1 200 OK
+		* Headers:
+			Content-Lenght: 1000
+			Content-Type: application/json
+		* Body:
+			[
+				{ id: '123' }
+			]
+
+* Components are siblings if they are both children of the same parent.
+* Bad!: Sibling components cannot directly communicate.
+	- They don't know that the other one exists whatsover.
+* Good!: To share info between sibling components, we have to involve the parent.
+	- Use props to communicate from parent to child.
+* Communicate from Child up to Parent.
+	- Treat it like a normal event!
+	- Pass an event handler down.
+	- Call handler when something interesting happens
+* The <form> element is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.
+	- A submit event is triggered.
+	- event.preventDefault() : disable all the form input collection.
+	- document.querySelector('input').value: Don't try to get a value out of an input using a query selector (or similar)
+	- The way React handles form elements (text input, checkboxes, radio buttons, etc) is a little weird.
+* Handling Text Inputs
+	- Create a new piece of state.
+	- Create an event handler to watch for the 'onChange' event.
+	- When the 'onChange' event fires, get the value from the input
+	- Take that value from the input and use it to update your state.
+	- Pass your state to the input as the value prop.
+* <input value="hi there!" /> Forces the input to always display "hi there!" and nothing else
+* Input flow diagram
+	- User types in input.
+	*-*-*-*-*-*-*-*-*-*-*-* Normal browser behavior *-*-*-*-*-*-*-*-*-*-*-*
+	- Browser updates the text in the input.
+	- Browser triggers an event to say the input was updated.
+	*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+	- We read the value from the input, update state.
+	- State update! Component rerenders.
+	- We provide 'value' prop to input - React changes the input's value.
+	- REPEAT FLOW!
+* React steals control of the value of the input from the browser, and putting the value of the input under the control of the state system. 
+* replace(): replace parts of a string with another.
+* A promise is tied to the async await system.
+* When you update state, the component and all of its children are rerendered.
+* Requirements for Keys:
+	- Use whenever we have a list of elements (so every time we do a 'map').
+	- Add the key to the top-most JSX element in the list.
+	- Must be a string or number.
+	- Should be unique for this list.
+	- Should be consistent across rerenders.
