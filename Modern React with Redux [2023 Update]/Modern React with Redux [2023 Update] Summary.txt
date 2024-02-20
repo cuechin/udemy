@@ -1,6 +1,6 @@
 Modern React with Redux [2023 Update]
 
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 2 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 3 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 * Props System
 	- Pass data from a parent to a child
@@ -12,6 +12,7 @@ Modern React with Redux [2023 Update]
 	2. React collects the attributes and puts them in an object.
 	3. Props object shows up as the first argument to the child component function.
 	4. We use the props however we wish.
+* Use of JavaScript destructuring.
 * React developer tools extension for Chrome: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
 * When we import a non JavaScript file, we have to ass in the extension file (.png, .jpge, etc)
 * Development server exposes some built files out of our project to the browser. Dev server is serving up the indexed HTML file every time we try to access our app.
@@ -20,9 +21,10 @@ Modern React with Redux [2023 Update]
 * If the image is larger than 9.7kb, then it gets treated as a separate file and it will be served up as a separate file by the development server.
 * alt prop: are used by people who make use of screen readers. Screen readers are pieces of software that take a look at the content on a screen and convert that content into audio.
 * bulma.io (https://bulma.io/) a CSS library.
-* NPM: Node Package Manager, SAS: a variant of CSS.
+* NPM: Node Package Manager.
+* SAS: a variant of CSS.
 
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 3 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 4 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 * Event System: detect a user clicking the button, dragging an element, typing and so on.
 	1. Decide what kind of event you want to watch for.
@@ -32,9 +34,14 @@ Modern React with Redux [2023 Update]
 	2. Create a function. Usually called an event handler or callback function.
 		- It is a function that's going to be called automatically at some future point in time when user actually clicks on something or types or whatever else.
 	3. Name the function using pattern of handle + EventName (Not a requirement! Community convention)
+		- handle + Click or on + EventName
+		- handle + MouseUp or on...
+		- handle + Scroll or on...
+		- on + Button + Click
 	4. Pass the function as a prop to a plain element.
 		- Plane element: div, button, span, etc.
 	5. Make sure you pass the function using valid event name ('onClick', 'onMouseOver', etc).
+		- We had to put in right here as the prop name with the exact same spelling and capitalization as you see back here on the documentation page.
 	6. Make sure you pass a reference to the function (don't call it!!).
 		- When we put in the prop right here or the function name, we are not going to put in a set of parentheses right after it. Only the function name.
 			const doGreeting = () => { return 'hi there' }
@@ -71,10 +78,13 @@ Modern React with Redux [2023 Update]
 	- Calling 'useState' defines a new piece of state.
 	- The first argument to 'useState' is used as the initial value.
 	- Updating state is done only using the setter function.
-	- Calling the setter function causes React to rerender the component.
+	- Calling the setter function causes React to rerender the whole component.
 * When you import an CSS file without a variable is telling our development server that we want to take all the CSS from inside that file and load it in the browser when we load up our project.
+* button {...} find all the button elements.
+* .button {...} className
+* Inline Handler : Arrow function used if we only need to do one thing when the event is triggered
 
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 4 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 5 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 * Unsplash API (https://unsplash.com/developers).
 * React has no tools, objects, functions for making HTTP requests.
