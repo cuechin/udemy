@@ -1,6 +1,6 @@
 Modern React with Redux [2023 Update]
 
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 3 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+SECTION 3 : Building with Reusable Components
 
 * Props System
 	- Pass data from a parent to a child
@@ -24,7 +24,7 @@ Modern React with Redux [2023 Update]
 * NPM: Node Package Manager.
 * SAS: a variant of CSS.
 
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 4 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+SECTION 4 : State : How to Change Your App
 
 * Event System: detect a user clicking the button, dragging an element, typing and so on.
 	1. Decide what kind of event you want to watch for.
@@ -84,11 +84,12 @@ Modern React with Redux [2023 Update]
 * .button {...} className
 * Inline Handler : Arrow function used if we only need to do one thing when the event is triggered
 
-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- SECTION 5 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+SECTION 5 : Using an API with React
 
 * Unsplash API (https://unsplash.com/developers).
 * React has no tools, objects, functions for making HTTP requests.
 * React only cares about showimg content and handling user events.
+* We can write a lot of business logic + data fetching without worrying about React!
 * HTTP
 	- HTTP request
 		* Request line: going to contain the URL that we want to make a request to.
@@ -136,12 +137,16 @@ Modern React with Redux [2023 Update]
 * Good!: To share info between sibling components, we have to involve the parent.
 	- Use props to communicate from parent to child.
 * Communicate from Child up to Parent.
+	- Many blog posts + docs (even me!) say props is only for parent to child communication (not super accurate)
 	- Treat it like a normal event!
-	- Pass an event handler down.
-	- Call handler when something interesting happens
-* The <form> element is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.
-	- A submit event is triggered.
-	- event.preventDefault() : disable all the form input collection.
+	- Pass an event handler down using the props system.
+	- Call handler when something interesting happens. (Handler gets called with an event object)
+* The <form> element (HTML tag) is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.
+	- A submit event is triggered using onSubmit() in <form>.
+	- When you press the enter key or click the Submit button the browser is going to attempt to collect all the information from the inputs inside the <form> and make a network request with them.
+		- The browser is gonna look at each input element's name attribute.
+		- E.g. myapp.com?email=asdf@asdf.com&password=asdf
+		- event.preventDefault() : disable all the form input collection.
 	- document.querySelector('input').value: Don't try to get a value out of an input using a query selector (or similar)
 	- The way React handles form elements (text input, checkboxes, radio buttons, etc) is a little weird.
 * Handling Text Inputs
@@ -161,10 +166,15 @@ Modern React with Redux [2023 Update]
 	- State update! Component rerenders.
 	- We provide 'value' prop to input - React changes the input's value.
 	- REPEAT FLOW!
-* React steals control of the value of the input from the browser, and putting the value of the input under the control of the state system. 
+* React steals control of the value of the input from the browser, and putting the value of the input under the control of the state system.
 * replace(): replace parts of a string with another.
-* A promise is tied to the async await system.
+* A promise is tied to the async await system. 
 * When you update state, the component and all of its children are rerendered.
+* We use keys property to prevent rebuilding the entire list, just to do that very small swap of data that is very inefficient.
+	- Applying Update:
+		- Step 0: Apply a "Key" to each element during the mapping step. (We do this)
+		- Step 1 : After re-rendering, compare the keys on each element of the list to the keys from the previous render. (React does this)
+		- Step 2: Apply minimal set of changes to existing DOM elements. (React does this)
 * Requirements for Keys:
 	- Use whenever we have a list of elements (so every time we do a 'map').
 	- Add the key to the top-most JSX element in the list.
